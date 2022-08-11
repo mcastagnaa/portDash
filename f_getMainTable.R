@@ -13,7 +13,7 @@ f_getMainTable <- function(AClass, thisDate) {
            (ClosedDate >= thisDate)|is.na(ClosedDate),
            Start_date < thisDate) %>%
     left_join(dataTop, by = c("ShortCode"="Name")) %>%
-    filter(repDate == Date) %>%
+    filter(repDate == thisDate) %>%
     select(ShortCode, FundName, all_of(c(commonFields, addCols)))
   
   return(table)
